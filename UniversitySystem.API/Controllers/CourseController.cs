@@ -64,6 +64,9 @@ public class CourseController : ControllerBase
 
 
     [HttpPut("{courseId:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public IActionResult UpdateCourse(int courseId, [FromBody] UpdateCourseDto dto)
     {
         var course = new Course
@@ -82,6 +85,8 @@ public class CourseController : ControllerBase
     }
 
     [HttpDelete("{courseId:int}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public IActionResult DeleteCourse(int courseId)
     {
         courseService.DeleteCourse(courseId);

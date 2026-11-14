@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace UniversitySystem.Infra.Common
             {
                 if (connection == null)
                 {
-                    connection = new OracleConnection(configuration["ConnectionStrings:DBConnectionString"]);
+                    connection = new OracleConnection((configuration["ConnectionStrings:DBConnectionString"] ?? configuration["ConnectionStrings:DefaultConnection"]));
                     connection.Open();
 
                 }

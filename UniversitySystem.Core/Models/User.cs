@@ -16,6 +16,6 @@ public partial class User
     public string Passwordhash { get; set; } = null!;
 
     public decimal Roleid { get; set; }
-    public string? Rolename { get; set; }
+
     public virtual Role Role { get; set; } = null!;
 }

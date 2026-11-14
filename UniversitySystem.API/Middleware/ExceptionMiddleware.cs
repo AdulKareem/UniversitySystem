@@ -1,4 +1,4 @@
-﻿using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 
 namespace UniversitySystem.API.Middleware
 {
@@ -25,9 +25,9 @@ namespace UniversitySystem.API.Middleware
                 // أخطاء الباكج التي عرّفتها بنفسك (RAISE_APPLICATION_ERROR)
                 ctx.Response.StatusCode = ex.Number switch
                 {
-                    20207 => StatusCodes.Status404NotFound,   // غير موجود
-                    20206 => StatusCodes.Status409Conflict,   // مكرر
-                    20208 => StatusCodes.Status409Conflict,   // لا يمكن الحذف
+                    20207 or 20103 or 20305 or 20408 => StatusCodes.Status404NotFound,   // غير موجود
+                    20206 or 20208 or 20102 or 20104 or 20304 or 20306
+                        or 20406 or 20407 or 20409 => StatusCodes.Status409Conflict,     // مكرر / لا يمكن الحذف
                     _ => StatusCodes.Status400BadRequest  // فاليديشن
                 };
 
