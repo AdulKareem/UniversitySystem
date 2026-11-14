@@ -8,5 +8,6 @@ namespace UniversitySystem.Infra.Service
 {
     public class SectionService
     {
+    
     }
 }
