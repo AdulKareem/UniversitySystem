@@ -23,6 +23,12 @@ builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<IInstructorRepository, InstructorRepository>();
 builder.Services.AddScoped<IInstructorService, InstructorService>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<ISectionRepository, SectionRepository>();
+builder.Services.AddScoped<ISectionSchedulesService, SectionSchedulesService>();
+builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
+builder.Services.AddScoped<IRegistrationService, RegistrationService>();
+builder.Services.AddScoped<ISectionSchedulesRepository,SectionSchedulesRepository>();
+builder.Services.AddScoped<ISectionService, SectionService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddCors(options =>
 {
